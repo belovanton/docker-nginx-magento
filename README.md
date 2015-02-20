@@ -52,5 +52,5 @@ In our example the magento container is linked to the mysql container under the 
 This means that you'll have to edit your config file in such a way that the mysql host is no longer localhost but db.
 
 
-Best Regards,
+Regards,
 Dmitry
