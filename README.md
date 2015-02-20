@@ -32,7 +32,7 @@ docker run --name project-mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
 #### Running the container
 
 ```shell
-docker run -d --name project -p 80:80 -v /location/of/magentodata/at/host/:/var/www/ --link project-mysql:db gdemad/nginx-magento
+docker run -d --name project -p 80:80 -v /location/of/magentodata/at/host/:/var/www/ --link project-mysql:db kmplzt/nginx-magento
 ```
 
 #### How it works
@@ -43,7 +43,7 @@ docker run -d --name project -p 80:80 -v /location/of/magentodata/at/host/:/var/
   * MAILSERVER : External smtp server (smart host, default value mailserver)
 * -v : Linking a directory on your host with the magento data of the container
 * --link : linking this container be.punk.www.mysql and set it up with the hostname 'db'
-* gdemad/nginx-magento : The name of the repository
+* kmplzt/nginx-magento : The name of the repository
 
 
 ## Comments
