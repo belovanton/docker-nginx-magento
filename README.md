@@ -53,4 +53,3 @@ This means that you'll have to edit your config file in such a way that the mysq
 
 
 Regards,
-Dmitry
