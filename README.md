@@ -21,10 +21,10 @@ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
 #### How it works
 
 * -d : Run daemonized
-* --Name : The name of the container
+* --name : The name of the container
 * -e : Environmental parameters
 	* MYSQL_ROOT_PASSWORD : When no root password of the database is set there will be one generated for you  
-* timherman/mysql : The name of the repository	
+* mysql : The name of the repository	
 
 
 ### The magento container
