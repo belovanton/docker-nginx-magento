@@ -15,7 +15,7 @@ You can find mysql either at docker (https://registry.hub.docker.com/_/mysql/)
 #### Running the container
 
 ```shell
-docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
+docker run --name project-mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
 ```
 
 #### How it works
