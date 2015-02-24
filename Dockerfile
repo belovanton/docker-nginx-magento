@@ -19,7 +19,12 @@ RUN apt-get -y install php5-curl php5-gd php5-intl php-pear php5-imagick php5-im
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
+RUN mv composer.phar /usr/local/bin/composer.phar
+
+# Install n98-magerun
+RUN curl -o n98-magerun.phar https://raw.githubusercontent.com/netz98/n98-magerun/master/n98-magerun.phar
+RUN chmod +x ./n98-magerun.phar
+RUN mv n98-magerun.phar /usr/local/bin/n98-magerun.phar
 
 # Magento Initialization and Startup Script
 ADD /scripts /scripts
