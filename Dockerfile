@@ -17,6 +17,10 @@ RUN apt-get -y install nginx php5-fpm php5-mysql php-apc pwgen python-setuptools
 # Magento Requirements
 RUN apt-get -y install php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-sqlite php5-tidy php5-xmlrpc php5-xsl
 
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+
 # Magento Initialization and Startup Script
 ADD /scripts /scripts
 ADD /config /config
