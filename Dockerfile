@@ -41,6 +41,12 @@ RUN cp /config/nginx/php.ini /etc/php5/fpm/php.ini
 RUN cp /config/nginx/php-fpm.conf /etc/php5/fpm/php-fpm.conf
 RUN cp /config/nginx/www.conf /etc/php5/fpm/pool.d/www.conf
 
+
+# mcrypt enable
+RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
+RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+
+
 # Enabling session files
 RUN mkdir -p /tmp/sessions/
 RUN chown www-data.www-data /tmp/sessions -Rf
