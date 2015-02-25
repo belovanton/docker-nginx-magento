@@ -25,9 +25,9 @@ echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf
 
 sed -i -e"s:;sendmail_path =:sendmail_path = ssmtp -t:g" /etc/php5/fpm/php.ini
 
-mkdir -p /var/www/htdocs
+mkdir -p /var/www/magento
 mkdir -p /var/www/logs
 chown www-data.www-data /var/www/ -Rf
-chmod 775 /var/www/htdocs -Rf
+chmod 775 /var/www/magento -Rf
 
 exec "$@"
