@@ -32,7 +32,7 @@ docker run --name project-mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
 #### Running the container
 
 ```shell
-docker run -d --name project -p 80:80 -v /location/of/magentodata/at/host/:/var/www/ --link project-mysql:db komplizierte/docker-nginx-magento
+docker run -d --name project -p 80:80 -v /location/of/magentodata/at/host/:/var/www/magento --link project-mysql:db komplizierte/docker-nginx-magento
 ```
 
 #### How it works
