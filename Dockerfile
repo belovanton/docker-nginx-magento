@@ -26,6 +26,9 @@ RUN curl -o n98-magerun.phar https://raw.githubusercontent.com/netz98/n98-mageru
 RUN chmod +x ./n98-magerun.phar
 RUN mv n98-magerun.phar /usr/local/bin/n98-magerun.phar
 
+# Set xterm
+RUN export TERM=xterm
+
 # Magento Initialization and Startup Script
 ADD /scripts /scripts
 ADD /config /config
