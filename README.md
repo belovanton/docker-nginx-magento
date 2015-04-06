@@ -12,39 +12,26 @@ You can find mysql either at docker (https://registry.hub.docker.com/_/mysql/)
 
 ### The mysql container
 
-#### Running the container
-
 ```shell
 docker run --name project-mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
 ```
 
-#### How it works
-
-* -d : Run daemonized
-* --name : The name of the container
-* -e : Environmental parameters
-	* MYSQL_ROOT_PASSWORD : When no root password of the database is set there will be one generated for you  
-* mysql : The name of the repository	
-
-
 ### The magento container
 
-#### Running the container
-
 ```shell
-docker run -d --name project -p 80:80 -v /location/of/magentodata/at/host/:/var/www/magento --link project-mysql:db komplizierte/docker-nginx-magento
+docker run -d --name project -p 80:80 -v ~/projects/test/:/var/www/magento --link project-mysql:db komplizierte/docker-nginx-magento
 ```
 
-#### How it works
+#### XDebug:
 
-* -d : Run daemonized
-* -p : Map the 80 port the container to the 80 port of the host ( Not required when using a reverse proxy )
-* -e : Environmental parameters
-  * MAILSERVER : External smtp server (smart host, default value mailserver)
-* -v : Linking a directory on your host with the magento data of the container
-* --link : linking this container be.punk.www.mysql and set it up with the hostname 'db'
-* komplizierte/docker-nginx-magento : The name of the repository
+* ./scripts/xdebug-start.sh
+* ./scripts/xdebug-stop.sh
 
+#### Samba Docker shared plugin (for OS X or Windows):
+
+* docker run -dit -v /var/www --name data busybox
+* docker run --rm -v $(which docker):/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba data
+* docker run -d --name lp -p 80:80 --volumes-from data --link mysql:db komplizierte/docker-nginx-magent
 
 ## Comments
 
