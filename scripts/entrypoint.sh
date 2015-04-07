@@ -30,4 +30,7 @@ mkdir -p /var/www/logs
 #chown www-data.www-data /var/www/ -Rf
 #chmod 775 /var/www/magento -Rf
 
+# Set xterm
+export TERM=xterm
+
 exec "$@"
