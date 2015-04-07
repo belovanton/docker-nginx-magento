@@ -37,7 +37,7 @@ docker run -d --name project -p 80:80 -v ~/projects/test/:/var/www/magento --lin
 ```shell
 docker run -dit -v /var/www --name data busybox
 docker run --rm -v $(which docker):/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba data
-docker run -d --name lp -p 80:80 --volumes-from data --link mysql:db komplizierte/docker-nginx-magent
+docker run -d --name lp -p 80:80 --volumes-from data --link mysql:db komplizierte/docker-nginx-magento
 ```
 
 ## Comments
