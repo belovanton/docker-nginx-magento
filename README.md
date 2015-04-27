@@ -46,6 +46,12 @@ docker run -d --name project -p 80:80 --volumes-from data --link mysql:db -w /va
 chown -R nobody:nogroup project/
 ```
 
+#### SSH keys for composer
+
+```
+killall ssh-agent; eval `ssh-agent`
+```
+
 #### Mount data volume
 
 Your data volume (/var/www) should now be accessible at \\<docker ip>\ as 'guest' user (no password)
