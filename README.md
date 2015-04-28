@@ -17,6 +17,7 @@ Boot2docker Vagrant box for optimized Docker and Docker Compose use on Mac and W
 https://github.com/blinkreaction/boot2docker-vagrant
 
 Install on Mac OS:
+
 ```shell
 curl https://raw.githubusercontent.com/blinkreaction/boot2docker-vagrant/master/setup.sh | bash
 ```
@@ -44,12 +45,6 @@ docker run -d --name project -p 80:80 -v ~/projects/test/:/var/www/magento --lin
 
 ```shell
 chown -R nobody:nogroup project/
-```
-
-#### SSH keys for composer
-
-```shell
-killall ssh-agent; eval `ssh-agent`
 ```
 
 ## Comments
