@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Dmitry Schegolihin <d.shegolihin@gmail.com>
+MAINTAINER Komplizierte Technologien <a.putin@kmplzt.de>
 
 # Keep upstart from complaining
 RUN dpkg-divert --local --rename --add /sbin/initctl
@@ -41,11 +41,15 @@ RUN cp /config/nginx/php.ini /etc/php5/fpm/php.ini
 RUN cp /config/nginx/php-fpm.conf /etc/php5/fpm/php-fpm.conf
 RUN cp /config/nginx/www.conf /etc/php5/fpm/pool.d/www.conf
 
-
 # mcrypt enable
 RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
 RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
 
+# Enabling SSH
+RUN rm -f /etc/service/sshd/down
+
+# Create .ssh folder
+RUN mkdir -p /root/.ssh
 
 # Enabling session files
 RUN mkdir -p /tmp/sessions/
