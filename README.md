@@ -10,6 +10,17 @@ You can find mysql either at docker (https://registry.hub.docker.com/_/mysql/)
 
 ## Usage by example
 
+
+### For Mac OS users - Boot2docker Vagrant Box
+
+Boot2docker Vagrant box for optimized Docker and Docker Compose use on Mac and Windows.
+https://github.com/blinkreaction/boot2docker-vagrant
+
+Install on Mac OS:
+```shell
+curl https://raw.githubusercontent.com/blinkreaction/boot2docker-vagrant/master/setup.sh | bash
+```
+
 ### The mysql container
 
 ```shell
@@ -19,56 +30,27 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
 ### The magento container
 
 ```shell
-docker run -d --name project -p 80:80 -v ~/projects/test/:/var/www/magento --link project-mysql:db komplizierte/docker-nginx-magento
+docker run -d --name project -p 80:80 -v ~/projects/test/:/var/www/magento --link mysql:db komplizierte/docker-nginx-magento
 ```
 
 #### XDebug:
 
 ```shell
 ./scripts/xdebug-start.sh
-```
-
-```shell
 ./scripts/xdebug-stop.sh
-```
-
-#### Samba Docker shared plugin (for OS X or Windows):
-
-```shell
-docker run -dit -v /var/www --name data busybox
-docker run --rm -v $(which docker):/docker -v /var/run/docker.sock:/docker.sock svendowideit/samba data
-docker run -d --name project -p 80:80 --volumes-from data --link mysql:db -w /var/www komplizierte/docker-nginx-magento
 ```
 
 #### Resolve permissions in container
 
-```
+```shell
 chown -R nobody:nogroup project/
 ```
 
 #### SSH keys for composer
 
-```
+```shell
 killall ssh-agent; eval `ssh-agent`
 ```
-
-#### Mount data volume
-
-Your data volume (/var/www) should now be accessible at \\<docker ip>\ as 'guest' user (no password)
-
-For example, on OSX, using a typical boot2docker vm:
-    goto Go|Connect to Server in Finder
-    enter 'cifs://192.168.59.103'
-    hit the 'Connect' button
-    select the volumes you want to mount
-    choose the 'Guest' radiobox and connect
-
-Or on Linux:
-    mount -t cifs //192.168.59.103/data /mnt/data -o username=guest
-
-Or on Windows:
-    Enter '\\192.168.59.103\data' into Explorer
-    Log in as Guest - no password
 
 ## Comments
 
