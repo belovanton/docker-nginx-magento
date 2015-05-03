@@ -31,7 +31,7 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql
 ### The magento container
 
 ```shell
-docker run -d --name project -p 80:80 -v /.ssh/:/root/.ssh -v project:/var/www/magento --link mysql:db komplizierte/docker-nginx-magento
+docker run -d --name project -p 80:80 -v /.ssh/:/root/.ssh -v project:/var/www/magento -v modules:/var/www/modules --link mysql:db komplizierte/docker-nginx-magento
 ```
 
 #### XDebug:
