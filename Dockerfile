@@ -27,9 +27,9 @@ RUN chmod +x ./n98-magerun.phar
 RUN mv n98-magerun.phar /usr/local/bin/n98-magerun.phar
 
 # Install Modman
-RUN curl -sS https://raw.github.com/colinmollenhour/modman/master/modman-installer 
-RUN chmod +x modman
-RUN mv modman /usr/local/bin/
+# RUN bash < <(curl -s -L https://raw.github.com/colinmollenhour/modman/master/modman-installer) 
+# RUN chmod +x modman
+# RUN mv modman /usr/local/bin/
 
 # Magento Initialization and Startup Script
 ADD /scripts /scripts
